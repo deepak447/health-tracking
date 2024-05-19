@@ -6,13 +6,12 @@ from datetime import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 import google.generativeai as genai
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
 
-# set up google gemini -pro AI model
-genai.configure(api_key="AIzaSyDbfw2oNlIZ3NFNRejoD_6DjSjX2umI9Es")
-model = genai.GenerativeModel(model_name="gemini-1.0-pro")
+load_dotenv()
 
+genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 # translate thr role b/w gemini and streamlit terminolgy
 def translate_role(user_role):
     if user_role == 'model':
